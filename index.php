@@ -4,7 +4,7 @@ use PhpCompiler\Telegram\Exception\InvalidArgumentException;
 use PhpCompiler\Telegram\Exception\InvalidUpdateException;
 use PhpCompiler\Telegram\Request;
 
-require_once __DIR__ . '/Telegram.phar';
+require_once __DIR__ . '/vendor/autoload.php';
 
 
 try {

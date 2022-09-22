@@ -1,8 +1,8 @@
 <?php
 
-namespace Tsco\Api\Telegram\Tools;
+namespace PhpCompiler\Telegram\Tools;
 
-use Tsco\Api\Telegram\Updates;
+use PhpCompiler\Telegram\Updates;
 
 class Utils
 {

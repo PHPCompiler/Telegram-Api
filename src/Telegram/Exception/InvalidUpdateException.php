@@ -1,6 +1,6 @@
 <?php
 
-namespace Tsco\Api\Telegram\Exception;
+namespace PhpCompiler\Telegram\Exception;
 
 use Exception;
 

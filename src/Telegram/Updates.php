@@ -1,13 +1,13 @@
 <?php
 
-namespace Tsco\Api\Telegram;
+namespace PhpCompiler\Telegram;
 
 use Monolog\Handler\StreamHandler;
 use Monolog\Level;
 use Monolog\Logger;
-use Tsco\Api\Telegram\Exception\InvalidUpdateException;
-use Tsco\Api\Telegram\Tools\Customiz;
-use Tsco\Api\Telegram\Tools\Utils;
+use PhpCompiler\Telegram\Exception\InvalidUpdateException;
+use PhpCompiler\Telegram\Tools\Customiz;
+use PhpCompiler\Telegram\Tools\Utils;
 
 class Updates extends Customiz
 {

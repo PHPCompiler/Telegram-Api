@@ -1,12 +1,12 @@
 <?php
 
-namespace Tsco\Api\Telegram;
+namespace PhpCompiler\Telegram;
 
 use Monolog\Handler\StreamHandler;
 use Monolog\Level;
 use Monolog\Logger;
-use Tsco\Api\Telegram\Exception\InvalidArgumentException;
-use Tsco\Api\Telegram\Tools\Response;
+use PhpCompiler\Telegram\Exception\InvalidArgumentException;
+use PhpCompiler\Telegram\Tools\Response;
 
 class Request extends Methods
 {

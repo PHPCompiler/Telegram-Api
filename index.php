@@ -1,8 +1,8 @@
 <?php
 
-use Tsco\Api\Telegram\Exception\InvalidArgumentException;
-use Tsco\Api\Telegram\Exception\InvalidUpdateException;
-use Tsco\Api\Telegram\Request;
+use PhpCompiler\Telegram\Exception\InvalidArgumentException;
+use PhpCompiler\Telegram\Exception\InvalidUpdateException;
+use PhpCompiler\Telegram\Request;
 
 require_once __DIR__ . '/Telegram.phar';
 

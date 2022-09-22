@@ -1,6 +1,6 @@
 <?php
 
-namespace Tsco\Api\Telegram\Tools;
+namespace PhpCompiler\Telegram\Tools;
 
 class Customiz
 {

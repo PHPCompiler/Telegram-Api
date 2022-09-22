@@ -1,8 +1,8 @@
 <?php
 
-namespace Tsco\Api\Telegram;
+namespace PhpCompiler\Telegram;
 
-use Tsco\Api\Telegram\Tools\Response;
+use PhpCompiler\Telegram\Tools\Response;
 
 class Methods extends Updates
 {

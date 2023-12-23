@@ -17,11 +17,9 @@
     ],
     "require": {
         "ext-curl": "*",
-        "ext-json": "*"
-    },
-    "require-dev": {
         "ext-json": "*",
-        "monolog/monolog": "^3.4.0"
+        "monolog/monolog": "^2.9",
+        "catfan/medoo": "^2.1"
     },
     "minimum-stability": "dev",
     "prefer-stable": true

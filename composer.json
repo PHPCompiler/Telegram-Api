@@ -1,0 +1,28 @@
+{
+    "name": "phpcompiler/telegram",
+    "description": "Library for making Telegram bot",
+    "type": "library",
+    "homepage": "https://github.com/PHPCompiler/Telegram-Api",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "PhpCompiler\\Telegram\\": "src"
+        }
+    },
+    "authors": [
+        {
+            "name": "Meysam",
+            "email": "maeiseam@gmail.com"
+        }
+    ],
+    "require": {
+        "ext-curl": "*",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "ext-json": "*",
+        "monolog/monolog": "^3.4.0"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

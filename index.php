@@ -24,27 +24,27 @@ try {
     exit();
 }
 
-$Text                     = $Telegram->Text();
-$Title                    = $Telegram->Title();
-$firstName                = $Telegram->FirstName();
-$lastName                 = $Telegram->LastName();
-$userName                 = $Telegram->UserName();
-$UserID                   = $Telegram->FromID();
-$ChatID                   = $Telegram->ChatId();
-$ChatType                 = $Telegram->ChatType();
-$MessageId                = $Telegram->MessageId();
-$ChatMember               = $Telegram->ChatMember();
-$NewChatMember            = $Telegram->NewChatMember();
-$Callback_Data            = $Telegram->Callback_Data();
-$CallbackQueryID          = $Telegram->CallbackQueryID();
-$ReplyToMessageId         = $Telegram->ReplyToMessageId();
-$ReplyToMessageFromUserId = $Telegram->ReplyToMessageFromUserId();
-$InlineQuery              = $Telegram->InlineQuery();
-$InlineQueryId            = $Telegram->InlineQueryId();
-$InlineQueryFromId        = $Telegram->InlineQueryFromId();
-$ReplyToMessageText       = $Telegram->ReplyToMessageText();
-$WebAppData               = $Telegram->WebAppData();
-$WebAppDataButton         = $Telegram->WebAppDataButton();
+$Text                     = $Telegram->text();
+$Title                    = $Telegram->title();
+$firstName                = $Telegram->firstName();
+$lastName                 = $Telegram->lastName();
+$userName                 = $Telegram->userName();
+$UserID                   = $Telegram->fromID();
+$ChatID                   = $Telegram->chatId();
+$ChatType                 = $Telegram->chatType();
+$MessageId                = $Telegram->messageId();
+$ChatMember               = $Telegram->chatMember();
+$NewChatMember            = $Telegram->newChatMember();
+$Callback_Data            = $Telegram->callBackData();
+$CallbackQueryID          = $Telegram->callBackQueryID();
+$ReplyToMessageId         = $Telegram->replyToMessageId();
+$ReplyToMessageFromUserId = $Telegram->replyToMessageFromUserId();
+$InlineQuery              = $Telegram->inlineQuery();
+$InlineQueryId            = $Telegram->inlineQueryId();
+$InlineQueryFromId        = $Telegram->inlineQueryFromId();
+$ReplyToMessageText       = $Telegram->replyToMessageText();
+$WebAppData               = $Telegram->webAppData();
+$WebAppDataButton         = $Telegram->webAppDataButton();
 
 
 if ($ChatType == 'private') {

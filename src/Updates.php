@@ -93,9 +93,9 @@ class Updates extends Customiz
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function firstName(): string
+    public function firstName(): string|null
     {
         $type = $this->updateType;
         return htmlspecialchars(
@@ -112,16 +112,16 @@ class Updates extends Customiz
                 'chat_member',
                 'chat_join_request' => $this->{$type}['from']['first_name'] ?? NULL,
                 'poll_answer'       => $this->{$type}['user']['first_name'] ?? NULL,
-                default             => []
+                default             => NULL
             },
             ENT_NOQUOTES
         );
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function lastName(): string
+    public function lastName(): string|null
     {
         $type = $this->updateType;
         return htmlspecialchars(
@@ -138,7 +138,7 @@ class Updates extends Customiz
                 'chat_member',
                 'chat_join_request' => $this->{$type}['from']['last_name'] ?? NULL,
                 'poll_answer'       => $this->{$type}['user']['last_name'] ?? NULL,
-                default             => []
+                default             => NULL
         },
             ENT_NOQUOTES
         );
@@ -163,14 +163,14 @@ class Updates extends Customiz
             'chat_member',
             'chat_join_request' => $this->{$type}['from']['username'] ?? NULL,
             'poll_answer'       => $this->{$type}['user']['username'] ?? NULL,
-            default             => []
+            default             => NULL
         };
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function chatId(): int
+    public function chatId(): int|null
     {
         $type = $this->updateType;
         return match ($type) {
@@ -182,14 +182,14 @@ class Updates extends Customiz
             'chat_member',
             'chat_join_request' => $this->{$type}['chat']['id'] ?? NULL,
             'callback_query'    => $this->{$type}['message']['chat']['id'] ?? NULL,
-            default             => []
+            default             => NULL
         };
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function fromId(): int
+    public function fromId(): int|null
     {
         $type = $this->updateType;
         return match ($type) {
@@ -205,7 +205,7 @@ class Updates extends Customiz
             'chat_member',
             'chat_join_request' => $this->{$type}['from']['id'] ?? NULL,
             'poll_answer'       => $this->{$type}['user']['id'] ?? NULL,
-            default             => []
+            default             => NULL
         };
     }
 
@@ -225,31 +225,31 @@ class Updates extends Customiz
             'chat_member',
             'chat_join_request' => $this->{$type}['chat'] ?? '',
             'inline_query'      => $this->{$type},
-            default             => []
+            default             => NULL
         };
         return $response['type'] ?? $response['chat_type'] ?? null;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function messageId(): int
+    public function messageId(): int|null
     {
         $type = $this->updateType;
         return match ($type) {
             'message',
             'edited_message',
             'channel_post',
-            'edited_channel_post'  => $this->{$type},
+            'edited_channel_post'  => $this->{$type}['message_id'],
             'callback_query'       => $this->{$type}['message']['message_id'] ?? NULL,
-            default                => []
+            default                => NULL
         };
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function text(): string
+    public function text(): string|null
     {
         $type = $this->updateType;
         return htmlspecialchars(
@@ -257,17 +257,18 @@ class Updates extends Customiz
                 'message',
                 'edited_message',
                 'channel_post',
-                'edited_channel_post' => $this->{$type},
+                'edited_channel_post' => $this->{$type}['text'] ?? NULL,
                 'callback_query'      => $this->{$type}['message']['text'] ?? NULL,
-                default               => []
-            }
+                default               => NULL
+            },
+            ENT_NOQUOTES
         );
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function replyToMessageId(): int
+    public function replyToMessageId(): int|null
     {
         $type = $this->updateType;
         return match ($type) {
@@ -276,14 +277,14 @@ class Updates extends Customiz
             'channel_post',
             'edited_channel_post' => $this->{$type}['reply_to_message']['message_id'] ?? NULL,
             'callback_query'      => $this->{$type}['message']['reply_to_message']['message_id'] ?? NULL,
-            default               => []
+            default               => NULL
         };
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function replyToMessageFromUserId(): int
+    public function replyToMessageFromUserId(): int|null
     {
         $type = $this->updateType;
         return match ($type) {
@@ -292,53 +293,53 @@ class Updates extends Customiz
             'channel_post',
             'edited_channel_post' => $this->{$type}['reply_to_message']['forward_from']['id'] ?? NULL,
             'callback_query'      => $this->{$type}['message']['reply_to_message']['forward_from']['id'] ?? NULL,
-            default               => []
+            default               => NULL
         };
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function inlineQuery(): string
+    public function inlineQuery(): string|null
     {
         $type = $this->updateType;
         return match ($type) {
             'inline_query',
             'chosen_inline_result'  => $this->{$type}['query'] ?? NULL,
-            default                 => []
+            default                 => NULL
         };
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function inlineQueryId(): int
+    public function inlineQueryId(): int|null
     {
         $type = $this->updateType;
         return match ($type) {
             'inline_query',
             'chosen_inline_result'  => $this->{$type}['id'] ?? NULL,
-            default                 => []
+            default                 => NULL
         };
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function inlineQueryFromId(): int
+    public function inlineQueryFromId(): int|null
     {
         $type = $this->updateType;
         return match ($type) {
             'inline_query',
             'chosen_inline_result'  => $this->{$type}['from']['id'] ?? NULL,
-            default                 => []
+            default                 => NULL
         };
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function replyToMessageText(): string
+    public function replyToMessageText(): string|null
     {
         $type = $this->updateType;
         return match ($type) {
@@ -347,7 +348,7 @@ class Updates extends Customiz
             'channel_post',
             'edited_channel_post' => $this->{$type}['reply_to_message']['text'] ?? NULL,
             'callback_query'      => $this->{$type}['message']['reply_to_message']['text'] ?? NULL,
-            default               => []
+            default               => NULL
         };
     }
 
@@ -368,7 +369,7 @@ class Updates extends Customiz
         $type = $this->updateType;
         return match ($type) {
             'callback_query'      => $this->{$type}['id'] ?? NULL,
-            default               => []
+            default               => NULL
         };
     }
 
@@ -380,7 +381,7 @@ class Updates extends Customiz
         $type = $this->updateType;
         return match ($type) {
             'callback_query'      => $this->{$type}['data'] ?? NULL,
-            default               => []
+            default               => NULL
         };
     }
 
@@ -392,7 +393,7 @@ class Updates extends Customiz
         $type = $this->updateType;
         return match ($type) {
             'callback_query'      => $this->{$type}['message'] ?? NULL,
-            default               => []
+            default               => NULL
         };
     }
 
@@ -404,7 +405,7 @@ class Updates extends Customiz
         $type = $this->updateType;
         return match ($type) {
             'callback_query'      => $this->{$type}['message']['chat']['id'] ?? NULL,
-            default               => []
+            default               => NULL
         };
     }
 
@@ -416,7 +417,7 @@ class Updates extends Customiz
         $type = $this->updateType;
         return match ($type) {
             'chat_member'         => $this->{$type}['chat']['title'] ?? NULL,
-            default               => []
+            default               => NULL
         };
     }
 
@@ -428,7 +429,7 @@ class Updates extends Customiz
         $type = $this->updateType;
         return match ($type) {
             'chat_member'         => $this->{$type}['chat_member'] ?? NULL,
-            default               => []
+            default               => NULL
         };
     }
 
@@ -440,7 +441,7 @@ class Updates extends Customiz
         $type = $this->updateType;
         return match ($type) {
             'chat_member'         => $this->{$type}['new_chat_member'] ?? NULL,
-            default               => []
+            default               => NULL
         };
     }
 
